@@ -23,6 +23,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 20px;
     }
 
     @keyframes pastelFlow {
@@ -32,10 +33,10 @@
     }
 
     header {
-      width: 100%;
       position: absolute;
       top: 0;
       left: 0;
+      width: 100%;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
@@ -62,32 +63,38 @@
 
     .language-selector {
       font-size: 16px;
-      color: #444;
+      color: #555;
     }
 
     .hero {
-      margin-bottom: 20px;
+      margin-top: 80px;
     }
 
     .hero h2 {
-      font-size: 32px;
+      font-size: 36px;
       color: #333;
       margin-bottom: 10px;
     }
 
     .hero p {
-      font-size: 18px;
-      color: #555;
+      font-size: 20px;
+      color: #666;
     }
 
-    #watson-chat {
-      width: 100%;
-      max-width: 800px;
-      height: 600px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: white;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .language-selector {
+        margin-top: 10px;
+      }
+      .hero h2 {
+        font-size: 28px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -103,33 +110,8 @@
 
   <div class="hero">
     <h2>Hi! I’m Linguava <span style="font-family: emoji;">🐦</span></h2>
-    <p>Your friendly language-learning assistant</p>
+    <p>Your friendly language-learning companion</p>
   </div>
-
-  <div id="watson-chat"></div>
-
-  <script>
-    window.watsonAssistantChatOptions = {
-      integrationID: "939d047e-3175-4c10-b598-d8db0b82baf6",
-      region: "us-south",
-      serviceInstanceID: "3e9498a9-924b-4f71-831c-0522f2be3709",
-      element: document.getElementById("watson-chat"),
-      showLauncher: false,
-      onLoad: function(instance) {
-        instance.render().then(function() {
-          instance.updateCSSVariables({
-            '--max-width': '100%',
-            '--min-height': '600px'
-          });
-        });
-      }
-    };
-    setTimeout(function () {
-      const t = document.createElement('script');
-      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/latest/WatsonAssistantChatEntry.js";
-      document.head.appendChild(t);
-    });
-  </script>
 
 </body>
 </html>
