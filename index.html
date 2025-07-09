@@ -10,121 +10,173 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
     }
 
     body {
-      font-family: 'Quicksand', sans-serif;
-      height: 100vh;
-      background: linear-gradient(135deg, #fdfbfb, #ebedee, #d7e1ec, #fcefee);
-      background-size: 400% 400%;
-      animation: pastelFlow 12s ease infinite;
+      background-color: white;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
+      min-height: 100vh;
     }
 
-    @keyframes pastelFlow {
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    .chatbot-name {
+      font-size: 22px;
+      font-weight: bold;
+      background: linear-gradient(45deg, #f12711, #f5af19, #43cea2, #185a9d, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: shine 4s linear infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .language-select {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .main-container {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+
+    .left-side .mascot {
+      width: 280px;
+      max-width: 90%;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .right-side {
+      max-width: 450px;
+      text-align: center;
+    }
+
+    .right-side h1 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 15px;
+      border-radius: 10px;
+      margin: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn.green {
+      background: linear-gradient(90deg, #ff6a00, #ee0979, #00c9ff, #92fe9d);
+      color: white;
+      background-size: 300% 300%;
+      animation: gradientMove 5s ease infinite;
+      border: none;
+    }
+
+    @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: transparent;
+    .btn.green:hover {
+      filter: brightness(1.1);
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      height: 50px;
-      margin-right: 10px;
-    }
-
-    .logo h1 {
-      font-size: 28px;
-      background: linear-gradient(to right, #9999e7, #59c3c3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .language-selector {
-      font-size: 16px;
-      color: #555;
-    }
-
-    .hero {
-      margin-top: 80px;
-    }
-
-    .hero h2 {
-      font-size: 36px;
+    .btn.outline {
+      background-color: #f4f4f4;
       color: #333;
-      margin-bottom: 10px;
+      border: 1px solid #ccc;
     }
 
-    .hero p {
-      font-size: 20px;
-      color: #666;
+    .btn.outline:hover {
+      background-color: #e8e8e8;
     }
 
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .language-selector {
-        margin-top: 10px;
-      }
-      .hero h2 {
-        font-size: 28px;
-      }
-      .hero p {
-        font-size: 16px;
-      }
+    .footer {
+      border-top: 1px solid #eee;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      background: white;
+    }
+
+    .language-flags span {
+      margin: 0 10px;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="https://i.postimg.cc/g0bvthF7/lingava.png" alt="Linguava Logo">
-      <h1>Linguava</h1>
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="logo-container">
+      <img src="C:\Users\Vaibhavi\OneDrive\Desktop\lingava.jpg" class="logo" alt="Linguava Logo" />
+      <span class="chatbot-name">Linguava</span>
     </div>
-    <div class="language-selector">SITE LANGUAGE: ENGLISH</div>
+    <div class="language-select">SITE LANGUAGE: ENGLISH ⌄</div>
   </header>
 
-  <div class="hero">
-    <h2>Hi! I’m Linguava <span style="font-family: emoji;">🐦</span></h2>
-    <p>Your friendly language-learning companion</p>
-  </div>
+  <!-- Main Content -->
+  <main class="main-container">
+    <div class="left-side">
+      <img src="C:\Users\Vaibhavi\OneDrive\Desktop\lingava.jpg" class="mascot" alt="Mascot Bird" />
+    </div>
+
+    <div class="right-side">
+      <h1>The free, fun, and effective way to learn a language!</h1>
+      <a href="lingava1.html" class="btn green">GET STARTED</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="language-flags">
+      <span>🇺🇸 English</span>
+      <span>🇪🇸 Spanish</span>
+      <span>🇫🇷 French</span>
+      <span>🇩🇪 German</span>
+      <span>🇮🇹 Italian</span>
+      <span>🇧🇷 Portuguese</span>
+      <span>🇳🇱 Dutch</span>
+    </div>
+  </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
